@@ -9,22 +9,20 @@ public class DatabaseConnect {
 
         Connection conn = null;
         ResultSet rs = null;
-        String userid = "scott";
-        String passwd = "tiger";
+        String userid = "dev_kiosk";
+        String passwd = "1234";
 
         try {
 
             conn = serverConnect(userid, passwd);
 
-            String sql = "select deptno, dname, loc from dept";
+            String sql = "select hot from orders";
 
             rs = getSQLResult(conn, sql);
 
             while (rs.next()) {
-                int deptno = rs.getInt("deptno");
-                String dname = rs.getString("dname");
-                String loc = rs.getString("loc");
-                System.out.println(deptno + "\t" + dname + "\t" + loc);
+                int hot = rs.getInt("hot");
+                System.out.println(hot);
             }
 
             closeResources(rs, conn);
