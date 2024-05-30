@@ -9,7 +9,7 @@ public class MainApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("home.fxml"));
         System.setProperty("prism.lcdtext", "false");
         Scene scene = new Scene(fxmlLoader.load(), 500, 800);
         stage.setTitle("Welcome To JH Cafe");
