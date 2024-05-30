@@ -1,4 +1,4 @@
-package coffee.kiosk;
+package coffee.kiosk.DAO;
 
 import java.sql.*;
 
