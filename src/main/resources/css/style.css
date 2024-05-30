@@ -5,3 +5,7 @@
 #management .label {
     -fx-font-family: "Cafe24Supermagic-Bold-v1.0.ttf";
 }
+
+#home .button {
+    -fx-font-family: "Cafe24Ssurround-v2.0.ttf";
+}
