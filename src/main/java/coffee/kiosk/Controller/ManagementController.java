@@ -44,11 +44,11 @@ public class ManagementController implements Initializable {
     }
 
     public void goHome(MouseEvent mouseEvent) {
-        FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("/coffee/kiosk/management.fxml"));
-        Scene managementScene = new Scene(managementLoader.load());
-        Button managementBtn = (Button) scene.lookup("#management");
-        managementBtn.setOnAction(event -> {
-            stage.setScene(managementScene);
-        });
+//        FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("/coffee/kiosk/management.fxml"));
+//        Scene managementScene = new Scene(managementLoader.load());
+//        Button managementBtn = (Button) scene.lookup("#management");
+//        managementBtn.setOnAction(event -> {
+//            stage.setScene(managementScene);
+//        });
     }
 }
