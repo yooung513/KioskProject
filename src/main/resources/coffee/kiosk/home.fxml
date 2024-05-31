@@ -12,7 +12,7 @@
             <Font name="카페24 써라운드" size="34.0" />
          </font>
       </Button>
-      <Button fx:id="management" layoutX="265.0" layoutY="185.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 20;" text="메뉴 관리">
+      <Button fx:id="management" layoutX="265.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#goManagement" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 20;" text="메뉴 관리">
          <font>
             <Font name="카페24 써라운드" size="34.0" />
          </font>
