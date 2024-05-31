@@ -51,6 +51,8 @@
             </HBox>
          </content>
       </ScrollPane>
+
+
       <StackPane layoutY="198.0" prefHeight="600.0" prefWidth="500.0">
          <children>
             <ListView prefHeight="300.0" prefWidth="200.0" />
