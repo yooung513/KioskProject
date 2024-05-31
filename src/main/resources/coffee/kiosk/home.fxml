@@ -4,10 +4,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffee.kiosk.MainApplication">
    <children>
-      <Button layoutX="35.0" layoutY="60.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 20;" text="개점 처리">
+      <Button fx:id="openstore" layoutX="35.0" layoutY="60.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 20;" text="개점 처리">
          <font>
             <Font name="카페24 써라운드" size="34.0" />
          </font>
