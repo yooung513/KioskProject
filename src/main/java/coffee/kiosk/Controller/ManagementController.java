@@ -1,12 +1,16 @@
 package coffee.kiosk.Controller;
 
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -19,6 +23,8 @@ import java.util.ResourceBundle;
  */
 
 public class ManagementController implements Initializable {
+
+    @FXML Label logo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,12 +49,23 @@ public class ManagementController implements Initializable {
     public void goDessert(MouseEvent mouseEvent) {
     }
 
-    public void goHome(MouseEvent mouseEvent) {
-//        FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("/coffee/kiosk/management.fxml"));
-//        Scene managementScene = new Scene(managementLoader.load());
-//        Button managementBtn = (Button) scene.lookup("#management");
-//        managementBtn.setOnAction(event -> {
-//            stage.setScene(managementScene);
-//        });
+    public void goHome() throws Exception {
+
+        try {
+            Parent home = FXMLLoader.load(getClass().getResource("/coffee/kiosk/home.fxml"));
+            Scene scene = new Scene(home, 500, 900);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+
+            Stage root = (Stage) logo.getScene().getWindow();
+            root.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
