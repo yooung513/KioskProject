@@ -23,6 +23,15 @@ public class MainApplication extends Application {
             stage.setScene(cafemenuScene);
         });
 
+
+        // 메뉴 관리
+        FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("/coffee/kiosk/management.fxml"));
+        Scene managementScene = new Scene(managementLoader.load());
+        Button managementBtn = (Button) scene.lookup("#management");
+        managementBtn.setOnAction(event -> {
+            stage.setScene(managementScene);
+        });
+
         stage.setTitle("Welcome To JH Cafe");
         stage.setScene(scene);
         stage.show();
