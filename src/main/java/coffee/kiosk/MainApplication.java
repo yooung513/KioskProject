@@ -54,4 +54,20 @@ public class MainApplication extends Application {
             e.printStackTrace();
         }
     }
+
+    public void goCafemenu() {
+        try {
+
+            FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("/coffee/kiosk/cafemenu.fxml"));
+            Scene scene = new Scene(managementLoader.load(), 500, 900);
+
+            Stage stage = (Stage) management.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
