@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:controller="coffee.kiosk.Controller.ManagementController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="500.0" style="-fx-background-color: #F9E10E; -fx-border-color: #F9E10E;" vbarPolicy="NEVER">
+         <content>
+            <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #F9E10E;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTotal" prefHeight="100.0" prefWidth="100.0" text="전체" textAlignment="CENTER">
+                     <font>
+                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goCoffee" prefHeight="100.0" prefWidth="100.0" text="커피" textAlignment="CENTER">
+                     <font>
+                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goBeverage" prefHeight="100.0" prefWidth="100.0" text="음료" textAlignment="CENTER">
+                     <font>
+                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goSmoothie" prefHeight="100.0" prefWidth="100.0" text="스무디" textAlignment="CENTER">
+                     <font>
+                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTea" prefHeight="100.0" prefWidth="100.0" text="차" textAlignment="CENTER">
+                     <font>
+                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goDessert" prefHeight="100.0" prefWidth="100.0" text="디저트" textAlignment="CENTER">
+                     <font>
+                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
+      <StackPane layoutY="150.0" prefHeight="550.0" prefWidth="500.0">
+         <children>
+            <ListView prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </StackPane>
+      <TextField layoutX="28.0" layoutY="112.0" prefHeight="30.0" prefWidth="326.0" />
+      <Button id="searchBtn" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="371.0" layoutY="111.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 10;" text="검색" textAlignment="CENTER">
+         <font>
+            <Font name="카페24 써라운드" size="14.0" />
+         </font>
+      </Button>
+      <Button id="addBtn" layoutX="14.0" layoutY="719.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="신규 등록">
+         <font>
+            <Font name="카페24 써라운드" size="20.0" />
+         </font>
+      </Button>
+      <Button id="saveBtn" layoutX="382.0" layoutY="719.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="104.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="저장">
+         <font>
+            <Font name="카페24 써라운드" size="20.0" />
+         </font>
+      </Button>
+      <Button id="cancelBtn" layoutX="250.0" layoutY="719.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="104.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 15;" text="취소">
+         <font>
+            <Font name="카페24 써라운드" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
