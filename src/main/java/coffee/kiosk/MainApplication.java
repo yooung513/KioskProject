@@ -21,7 +21,7 @@ public class MainApplication extends Application {
 
         // 개점 처리
         // home scene -> cafemenu scene move
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/coffee/kiosk/cafemenu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("cafemenu.fxml"));
         Scene cafemenuScene = new Scene(loader.load());
         Button button = (Button) scene.lookup("#openstore");
         button.setOnAction(event -> {
@@ -42,7 +42,7 @@ public class MainApplication extends Application {
     public void goManagement() {
         try {
 
-            FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("/coffee/kiosk/management.fxml"));
+            FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("management.fxml"));
             Scene scene = new Scene(managementLoader.load(), 500, 900);
 
             Stage stage = (Stage) management.getScene().getWindow();
@@ -58,7 +58,7 @@ public class MainApplication extends Application {
     public void goCafemenu() {
         try {
 
-            FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("/coffee/kiosk/cafemenu.fxml"));
+            FXMLLoader managementLoader = new FXMLLoader(getClass().getResource("cafemenu.fxml"));
             Scene scene = new Scene(managementLoader.load(), 500, 900);
 
             Stage stage = (Stage) management.getScene().getWindow();
