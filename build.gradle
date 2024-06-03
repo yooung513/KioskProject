@@ -40,8 +40,7 @@ dependencies {
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
   // https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8
-  implementation("com.oracle.database.jdbc:ojdbc6:11.2.0.4")
-
+  implementation("com.oracle.database.jdbc:ojdbc8:23.2.0.0")
 }
 
 test {
