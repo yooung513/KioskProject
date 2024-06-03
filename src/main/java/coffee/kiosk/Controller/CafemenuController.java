@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -22,6 +24,7 @@ import java.util.ResourceBundle;
 
 
 public class CafemenuController implements Initializable {
+
 
 
     @FXML Label logo;
@@ -71,6 +74,21 @@ public class CafemenuController implements Initializable {
 
     }
 
+    // pagination 으로 페이지 동적 생성 위해서 초기화
+//    public void initialize(){
+//        setupPagination();
+//    }
+//
+//
+//
+//    private void setupData(){
+//    }
+//
+//    private void setupPagination(){
+//        int itemsPerPage = 9;
+//        int pageCount = (int) Math.ceil((double)datalist.size() / itemsPerPage);
+//    }
+
 
 
 
@@ -78,6 +96,24 @@ public class CafemenuController implements Initializable {
     public void goHome() throws Exception {
         try {
             Parent home = FXMLLoader.load(getClass().getResource("/coffee/kiosk/home.fxml"));
+            Scene scene = new Scene(home, 500, 900);
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+
+            Stage root = (Stage) logo.getScene().getWindow();
+            root.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // cafemenu -> cafelogin
+    public void goLogin() throws Exception {
+        try {
+            Parent home = FXMLLoader.load(getClass().getResource("/coffee/kiosk/cafemenuLogin.fxml"));
             Scene scene = new Scene(home, 500, 900);
 
             Stage stage = new Stage();
