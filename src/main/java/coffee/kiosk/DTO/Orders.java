@@ -4,23 +4,20 @@ import java.util.Date;
 
 public class Orders {
 
-    int orderIdx;
-    String foodId;
-    int optionId;
-    int paymentId;
-    String orderId;
-    String foodName;
-    int foodPrice;
-    int foodCount;
-    int hot;                 // 1: 선택 / 0: 선택 안함 (Default = 0)
-    int ice;                 // 얼음양 1: 기본 / 2: 적게 / 3: 많이
-    int shot;                // 1: 기본 / 2: 연하게 / 3: 2샷
-    boolean steviaFlag;      // Default = F
-    boolean syrupFlag;       // Default = F
-    boolean decaffeineFlag;  // Default = F
-    boolean completeFlag;
-    Date order_date;
-    int receipt_way;
+    int orderIdx;           // 주문 인덱스 (PK)
+    int paymentId;          // 결제 수단
+    int possibleIdx;        // 선택된 음료 및 옵션
+    int orderId;            // 주문 ID (같은 주문)
+    String foodName;        // 음료 이름
+    int foodPrice;          // 음료 가격
+    String optionName;      // 옵션 이름
+    int optionPrice;        // 옵션 가격
+    int foodCount;          // 음료 수량
+    boolean completeFlag;   // 완료 여부
+    Date orderDate;         // 주문 일자
+    int receiptWay;         // 수령 방법
+    int foodKey;            // 음료 Key (같은 음료)
+
 
 
     public int getOrderIdx() {
@@ -31,22 +28,6 @@ public class Orders {
         this.orderIdx = orderIdx;
     }
 
-    public String getFoodId() {
-        return foodId;
-    }
-
-    public void setFoodId(String foodId) {
-        this.foodId = foodId;
-    }
-
-    public int getOptionId() {
-        return optionId;
-    }
-
-    public void setOptionId(int optionId) {
-        this.optionId = optionId;
-    }
-
     public int getPaymentId() {
         return paymentId;
     }
@@ -55,9 +36,19 @@ public class Orders {
         this.paymentId = paymentId;
     }
 
-    public String getOrderId() { return orderId; }
+    public int getPossibleIdx() {
+        return possibleIdx;
+    }
 
-    public void setOrderId(String orderId) {
+    public void setPossibleIdx(int possibleIdx) {
+        this.possibleIdx = possibleIdx;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
         this.orderId = orderId;
     }
 
@@ -77,68 +68,59 @@ public class Orders {
         this.foodPrice = foodPrice;
     }
 
-    public int getFoodCount() { return foodCount; }
+    public int getOptionPrice() {
+        return optionPrice;
+    }
+
+    public void setOptionPrice(int optionPrice) {
+        this.optionPrice = optionPrice;
+    }
+
+    public int getFoodCount() {
+        return foodCount;
+    }
 
     public void setFoodCount(int foodCount) {
         this.foodCount = foodCount;
     }
 
-    public int getHot() {
-        return hot;
+    public boolean isCompleteFlag() {
+        return completeFlag;
     }
-
-    public void setHot(int hot) {
-        this.hot = hot;
-    }
-
-    public int getIce() {
-        return ice;
-    }
-
-    public void setIce(int ice) {
-        this.ice = ice;
-    }
-
-    public int getShot() {
-        return shot;
-    }
-
-    public void setShot(int shot) {
-        this.shot = shot;
-    }
-
-    public boolean isSteviaFlag() { return steviaFlag; }
-
-    public void setSteviaFlag(boolean steviaFlag) {
-        this.steviaFlag = steviaFlag;
-    }
-
-    public boolean isSyrupFlag() { return syrupFlag; }
-
-    public void setSyrupFlag(boolean syrupFlag) { this.syrupFlag = syrupFlag; }
-
-    public boolean isDecaffeineFlag() { return decaffeineFlag; }
-
-    public void setDecaffeineFlag(boolean decaffeineFlag) {
-        this.decaffeineFlag = decaffeineFlag;
-    }
-
-    public boolean isCompleteFlag() { return completeFlag; }
 
     public void setCompleteFlag(boolean completeFlag) {
         this.completeFlag = completeFlag;
     }
 
-    public Date getOrder_date() { return order_date; }
-
-    public void setOrder_date(Date order_date) {
-        this.order_date = order_date;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public int getReceipt_way() {
-        return receipt_way;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public void setReceipt_way(int receipt_way) { this.receipt_way = receipt_way;
+    public int getReceiptWay() {
+        return receiptWay;
+    }
+
+    public void setReceiptWay(int receiptWay) {
+        this.receiptWay = receiptWay;
+    }
+
+    public int getFoodKey() {
+        return foodKey;
+    }
+
+    public void setFoodKey(int foodKey) {
+        this.foodKey = foodKey;
+    }
+
+    public String getOptionName() {
+        return optionName;
+    }
+
+    public void setOptionName(String optionName) {
+        this.optionName = optionName;
     }
 }

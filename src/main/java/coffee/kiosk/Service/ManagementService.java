@@ -2,6 +2,8 @@ package coffee.kiosk.Service;
 
 import coffee.kiosk.DAO.ManagementRepository;
 import coffee.kiosk.DTO.Food;
+import coffee.kiosk.DTO.FoodOptions;
+import coffee.kiosk.DTO.PossibleOptions;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,5 +19,13 @@ public class ManagementService {
 
     public List<Food> findAll() throws SQLException {
         return managementRepository.findAll();
+    }
+
+    public List<FoodOptions> findOptions() throws SQLException {
+        return managementRepository.findOptions();
+    }
+
+    public int insertFoodAndPossibleOptions(Food food, List<PossibleOptions> possibleList) throws SQLException {
+        return managementRepository.insertFoodAndPossibleOptions(food, possibleList);
     }
 }

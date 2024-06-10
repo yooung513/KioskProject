@@ -2,7 +2,7 @@ package coffee.kiosk.DTO;
 
 public class Food {
 
-    String foodId;
+    int foodId;
     int menuId;
     String foodName;
     int foodPrice;
@@ -10,11 +10,11 @@ public class Food {
 
 
 
-    public String getFoodId() {
+    public int getFoodId() {
         return foodId;
     }
 
-    public void setFoodId(String foodId) {
+    public void setFoodId(int foodId) {
         this.foodId = foodId;
     }
 

@@ -3,16 +3,17 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffee.kiosk.Controller.ManagementController">
    <children>
+
+      <!-- 키오스크 메뉴 탭 -->
       <ScrollPane layoutY="50.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="500.0" style="-fx-background-color: #F9E10E; -fx-border-color: #F9E10E;" vbarPolicy="NEVER">
          <content>
             <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #F9E10E;">
@@ -52,33 +53,28 @@
          </content>
       </ScrollPane>
 
-
-      <StackPane layoutY="198.0" prefHeight="600.0" prefWidth="500.0">
-         <children>
-            <ListView prefHeight="300.0" prefWidth="200.0" />
-         </children>
-      </StackPane>
+      <!-- 검색 기능 -->
       <TextField layoutX="28.0" layoutY="160.0" prefHeight="30.0" prefWidth="326.0" />
       <Button id="searchBtn" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="380.0" layoutY="159.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 10;" text="검색" textAlignment="CENTER">
          <font>
             <Font name="카페24 써라운드" size="14.0" />
          </font>
       </Button>
-      <Button id="addBtn" layoutX="20.0" layoutY="820.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="신규 등록">
+
+      <!-- 키오스크 하단 버튼 -->
+      <Button fx:id="insertBtn" layoutX="20.0" layoutY="820.0" mnemonicParsing="false" onMouseClicked="#goInsert" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="신규 등록">
          <font>
             <Font name="카페24 써라운드" size="20.0" />
          </font>
       </Button>
-      <Button id="saveBtn" layoutX="380.0" layoutY="820.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="104.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="저장">
+      <Button layoutX="380.0" layoutY="820.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="104.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="저장">
          <font>
             <Font name="카페24 써라운드" size="20.0" />
          </font>
       </Button>
-      <Button id="cancelBtn" layoutX="250.0" layoutY="820.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="104.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 15;" text="취소">
-         <font>
-            <Font name="카페24 써라운드" size="20.0" />
-         </font>
-      </Button>
+
+
+      <!-- 카페 배너 (로고) -->
       <Label fx:id="logo" alignment="CENTER" onMouseClicked="#goHome" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #F9E10E;" text="재혁이네 카페" textAlignment="CENTER">
          <font>
             <Font name="카페24 써라운드" size="36.0" />
@@ -87,5 +83,16 @@
             <Insets bottom="-30.0" />
          </padding>
       </Label>
+
+      <!-- 음식 리스트 구현 부분 -->
+      <ScrollPane hbarPolicy="NEVER" layoutY="200.0" prefHeight="600.0" prefWidth="500.0" vbarPolicy="ALWAYS">
+        <content>
+                  <VBox fx:id="foodListContainer" prefHeight="611.0" prefWidth="498.0">
+               <children>
+                  <VBox layoutY="600.0" prefHeight="200.0" prefWidth="100.0" />
+               </children></VBox>
+        </content>
+      </ScrollPane>
+
    </children>
 </Pane>
