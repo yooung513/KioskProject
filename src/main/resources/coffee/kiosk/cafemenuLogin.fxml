@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffee.kiosk.Controller.CafemenuLoginController">
+    <children>
+        <ScrollPane layoutY="50.0" maxWidth="1.7976931348623157E308" prefHeight="100.0" prefWidth="500.0" style="-fx-background-color: #F9E10E; -fx-border-color: #F9E10E;" vbarPolicy="NEVER">
+            <content>
+                <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #F9E10E;">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTotal" prefHeight="100.0" prefWidth="100.0" text="전체" textAlignment="CENTER" textFill="#fafafa">
+                            <font>
+                                <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                            </font>
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goCoffee" prefHeight="100.0" prefWidth="100.0" text="커피" textAlignment="CENTER">
+                            <font>
+                                <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goDrink" prefHeight="100.0" prefWidth="100.0" text="음료" textAlignment="CENTER">
+                            <font>
+                                <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goSmoothie" prefHeight="100.0" prefWidth="100.0" text="스무디" textAlignment="CENTER">
+                            <font>
+                                <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTea" prefHeight="100.0" prefWidth="100.0" text="차" textAlignment="CENTER">
+                            <font>
+                                <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goDessert" prefHeight="100.0" prefWidth="100.0" text="디저트" textAlignment="CENTER">
+                            <font>
+                                <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </content>
+        </ScrollPane>
+        <AnchorPane layoutY="675.0" prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: #CCCCCC;">
+            <children>
+                <ScrollPane layoutY="7.0" prefHeight="220.0" prefWidth="350.0">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="350.0">
+                            <children>
+                                <HBox prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name1" prefHeight="36.0" prefWidth="118.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" top="-10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="coffee_num1" prefHeight="30.0" prefWidth="76.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets top="-10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="coffee_price1" prefHeight="30.0" prefWidth="69.0" text="금액">
+                                            <padding>
+                                                <Insets top="-10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="30.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name11" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num11" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price11" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="60.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name111" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num111" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price111" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="90.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name112" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num112" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price112" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="120.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name113" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num113" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price113" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="150.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name114" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num114" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price114" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="180.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name115" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num115" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price115" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="210.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name116" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num116" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price116" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="240.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name117" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num117" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price117" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="270.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name118" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num118" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price118" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="300.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name119" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num119" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price119" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="330.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name1181" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num1181" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price1181" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox layoutY="360.0" prefHeight="30.0" prefWidth="340.0">
+                                    <children>
+                                        <Label fx:id="coffee_name1182" prefHeight="36.0" prefWidth="94.0" text="음료 이름 ">
+                                            <padding>
+                                                <Insets left="10.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_num1182" prefHeight="36.0" prefWidth="37.0" text="수량">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <padding>
+                                                <Insets left="3.0" />
+                                            </padding>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="coffee_price1182" prefHeight="36.0" prefWidth="82.0" text="금액">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="18.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets left="15.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+                <AnchorPane layoutX="350.0" layoutY="7.0" prefHeight="120.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <VBox prefHeight="120.0" prefWidth="150.0">
+                            <children>
+                                <Label alignment="CENTER" prefHeight="60.0" prefWidth="150.0" text="주문 금액">
+                                    <font>
+                                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                                    </font>
+                                </Label>
+                                <HBox prefHeight="60.0" prefWidth="150.0">
+                                    <children>
+                                        <Label alignment="TOP_RIGHT" prefHeight="60.0" prefWidth="100.0">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label alignment="TOP_LEFT" prefHeight="60.0" prefWidth="50.0" text=" 원">
+                                            <font>
+                                                <Font name="카페24 슈퍼매직 Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="350.0" layoutY="127.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #F9E10E;" text="결제하기">
+                            <font>
+                                <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <Label fx:id="logo" alignment="CENTER" onMouseClicked="#goHome" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #F9E10E;" text="재혁이네 카페" textAlignment="CENTER">
+            <font>
+                <Font name="카페24 써라운드" size="36.0" />
+            </font>
+            <padding>
+                <Insets bottom="-30.0" />
+            </padding>
+        </Label>
+        <Pane layoutY="150.0" prefHeight="525.0" prefWidth="500.0">
+            <children>
+                <Pagination fx:id="menuPagination" prefHeight="525.0" prefWidth="500.0" />
+                <AnchorPane prefHeight="485.0" prefWidth="500.0">
+                    <children>
+                        <HBox prefHeight="161.0" prefWidth="500.0">
+                            <children>
+                                <VBox prefHeight="161.0" prefWidth="166.0" style="-fx-background-color: #FFFFFF;">
+                                    <children>
+                                        <ImageView fx:id="img1" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../../../../MSA5_Project1st/MSA5_Project1st/Document/png_picture/coffee/Americano.png" />
+                                            </image>
+                                            <VBox.margin>
+                                                <Insets left="25.0" />
+                                            </VBox.margin>
+                                        </ImageView>
+                                        <Label fx:id="menu1" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="161.0" text="아메리카노 ">
+                                            <font>
+                                                <Font name="카페24 써라운드" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="menuPrice1" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="161.0" text="2,000 원 ">
+                                            <font>
+                                                <Font name="카페24 써라운드" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="161.0" prefWidth="166.0" style="-fx-background-color: #FFFFFF;">
+                                    <children>
+                                        <ImageView fx:id="img2" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                            <VBox.margin>
+                                                <Insets left="25.0" />
+                                            </VBox.margin>
+                                        </ImageView>
+                                        <Label fx:id="menu2" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="161.0" text="아메리카노 ">
+                                            <font>
+                                                <Font name="카페24 써라운드" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="menuPrice2" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="161.0" text="2,000 원 ">
+                                            <font>
+                                                <Font name="카페24 써라운드" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="161.0" prefWidth="166.0" style="-fx-background-color: #FFFFFF;">
+                                    <children>
+                                        <ImageView fx:id="img3" fitHeight="110.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                            <VBox.margin>
+                                                <Insets left="25.0" />
+                                            </VBox.margin>
+                                        </ImageView>
+                                        <Label fx:id="menu3" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="161.0" text="아메리카노 ">
+                                            <font>
+                                                <Font name="카페24 써라운드" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="menuPrice3" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="14.0" prefWidth="161.0" text="2,000 원 ">
+                                            <font>
+                                                <Font name="카페24 써라운드" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                  <Pane layoutX="45.0" layoutY="-139.0" prefHeight="600.0" prefWidth="410.0" style="-fx-background-color: #CCCCCC;">
+                     <children>
+                        <VBox prefHeight="500.0" prefWidth="410.0">
+                           <children>
+                              <Label fx:id="displayLabel" alignment="CENTER" prefHeight="100.0" prefWidth="410.0">
+                                 <font>
+                                    <Font name="카페24 슈퍼매직 Bold" size="36.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click1" prefHeight="100.0" prefWidth="136.6" text="1">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click2" prefHeight="100.0" prefWidth="136.6" text="2">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click3" prefHeight="100.0" prefWidth="136.6" text="3">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click4" prefHeight="100.0" prefWidth="136.6" text="4">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click5" prefHeight="100.0" prefWidth="136.6" text="5">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click6" prefHeight="100.0" prefWidth="136.6" text="6">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click7" prefHeight="100.0" prefWidth="136.6" text="7">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click8" prefHeight="100.0" prefWidth="136.6" text="8">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click9" prefHeight="100.0" prefWidth="136.6" text="9">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#clickCancel" prefHeight="100.0" prefWidth="136.6" text="취소">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="36.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#click0" prefHeight="100.0" prefWidth="136.6" text="0">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="48.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onMouseClicked="#clickDelete" prefHeight="100.0" prefWidth="136.6" text="지우기">
+                                       <font>
+                                          <Font name="카페24 슈퍼매직 Bold" size="36.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Button layoutX="273.0" layoutY="500.0" mnemonicParsing="false" onMouseClicked="#clickAdd" prefHeight="100.0" prefWidth="136.6" text="등록">
+                           <font>
+                              <Font name="카페24 슈퍼매직 Bold" size="36.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+                    </children>
+                </AnchorPane>
+            </children></Pane>
+    </children>
+</Pane>

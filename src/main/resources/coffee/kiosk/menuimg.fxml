@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="173.3" prefWidth="166.6" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffee.kiosk.Controller.MenuimgController">
+   <children>
+      <ImageView fx:id="img" fitHeight="135.0" fitWidth="166.6" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../../../../../../../MSA5_Project1st/MSA5_Project1st/Document/png_picture/coffee/Americano.png" />
+         </image>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ImageView>
+      <Label fx:id="name" alignment="CENTER" prefHeight="37.5" prefWidth="167.0" text="Americano">
+         <font>
+            <Font name="카페24 써라운드" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" alignment="CENTER" prefHeight="37.5" prefWidth="167.0" text="2,000 원">
+         <font>
+            <Font name="카페24 써라운드" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>
