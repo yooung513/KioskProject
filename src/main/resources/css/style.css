@@ -9,3 +9,18 @@
 #home .button {
     -fx-font-family: "Cafe24Ssurround-v2.0.ttf";
 }
+
+.choiceBox .list-view {
+    -fx-font-family: "Cafe24Supermagic-Bold-v1.0.ttf";
+    -fx-font-size : 18pt;
+}
+
+.combo-box-popup #list-view {
+    -fx-font-family: "Cafe24Supermagic-Bold-v1.0.ttf";
+    -fx-font-size : 18pt;
+}
+
+.combo-box-popup #list-view #list-cell {
+    -fx-font-family: "Cafe24Supermagic-Bold-v1.0.ttf";
+    -fx-font-size : 18pt;
+}
