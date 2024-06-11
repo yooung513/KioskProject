@@ -2,22 +2,25 @@ package coffee.kiosk.Controller;
 
 
 import coffee.kiosk.DTO.Food;
+import coffee.kiosk.DTO.FoodOptions;
 import coffee.kiosk.Service.ManagementService;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -34,6 +37,15 @@ public class ManagementController implements Initializable{
     @FXML Label logo;
     @FXML VBox foodListContainer;
 
+    @FXML Label totalLabel;
+    @FXML Label coffeeLabel;
+    @FXML Label beverageLabel;
+    @FXML Label smoothieLabel;
+    @FXML Label teaLabel;
+    @FXML Label dessertLabel;
+    @FXML Label optionLabel;
+    @FXML TextField searchField;
+
     ManagementService managementService = new ManagementService();
 
 
@@ -47,27 +59,74 @@ public class ManagementController implements Initializable{
         }
 
         setFoodList(foodList);
+        setDesign(0);
     }
 
     public void goTotal(MouseEvent e) throws SQLException {
         List<Food> foodList = managementService.findAll();
-
         setFoodList(foodList);
+        setDesign(0);
     }
 
-    public void goCoffee(MouseEvent e) {
+    public void goCoffee(MouseEvent e) throws SQLException {
+        List<Food> foodList = managementService.findByMenu(1);
+        setFoodList(foodList);
+        setDesign(1);
     }
 
-    public void goBeverage(MouseEvent mouseEvent) {
+    public void goBeverage(MouseEvent mouseEvent) throws SQLException {
+        List<Food> foodList = managementService.findByMenu(2);
+        setFoodList(foodList);
+        setDesign(2);
     }
 
-    public void goSmoothie(MouseEvent mouseEvent) {
+    public void goSmoothie(MouseEvent mouseEvent) throws SQLException {
+        List<Food> foodList = managementService.findByMenu(3);
+        setFoodList(foodList);
+        setDesign(3);
     }
 
-    public void goTea(MouseEvent mouseEvent) {
+    public void goTea(MouseEvent mouseEvent) throws SQLException {
+        List<Food> foodList = managementService.findByMenu(4);
+        setFoodList(foodList);
+        setDesign(4);
     }
 
-    public void goDessert(MouseEvent mouseEvent) {
+    public void goDessert(MouseEvent mouseEvent) throws SQLException {
+        List<Food> foodList = managementService.findByMenu(5);
+        setFoodList(foodList);
+        setDesign(5);
+    }
+
+    public void goOptions(MouseEvent mouseEvent) throws SQLException {
+        // 수정 할 것 -> 옵션 리스트는 새로 만들어서 수정 버튼 이름 다르게 한 후 수정 페이지도 간단하게만 설정
+        List<FoodOptions> optionsList = managementService.findOptions();
+
+        try {
+            foodListContainer.getChildren().clear();
+
+            for (FoodOptions options : optionsList) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/coffee/kiosk/manageoptionlist.fxml"));
+
+                HBox hBox = fxmlLoader.load();
+                ManageFoodListController mflController = fxmlLoader.getController();
+                mflController.setOption(options);
+
+                foodListContainer.getChildren().add(hBox);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        setDesign(6);
+    }
+
+    public void goSearch(MouseEvent mouseEvent) throws SQLException {
+        String word = searchField.getText();
+        List<Food> foodList = managementService.findByWord(word);
+        setFoodList(foodList);
+        setDesign(0);
     }
 
 
@@ -92,18 +151,20 @@ public class ManagementController implements Initializable{
 
     public void setFoodList(List<Food> foodList) {
         try {
-            for (Food food : foodList) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/coffee/kiosk/managefoodlist.fxml"));
+                foodListContainer.getChildren().clear();
 
-                HBox hBox = fxmlLoader.load();
-                ManageFoodListController mflController = fxmlLoader.getController();
-                mflController.setData(food);
+                for (Food food : foodList) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/coffee/kiosk/managefoodlist.fxml"));
 
-                foodListContainer.getChildren().add(hBox);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+                    HBox hBox = fxmlLoader.load();
+                    ManageFoodListController mflController = fxmlLoader.getController();
+                    mflController.setData(food);
+
+                    foodListContainer.getChildren().add(hBox);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
         }
     }
 
@@ -111,5 +172,63 @@ public class ManagementController implements Initializable{
         ManageFoodListController foodListController = new ManageFoodListController();
 
         foodListController.viewInsert();
+    }
+
+    public void setDesign(int menuId) {
+        DropShadow dropShadow = new DropShadow();
+        totalLabel.setTextFill(Color.web("#000000"));
+        totalLabel.setEffect(null);
+        coffeeLabel.setTextFill(Color.web("#000000"));
+        coffeeLabel.setEffect(null);
+        beverageLabel.setTextFill(Color.web("#000000"));
+        beverageLabel.setEffect(null);
+        smoothieLabel.setTextFill(Color.web("#000000"));
+        smoothieLabel.setEffect(null);
+        teaLabel.setTextFill(Color.web("#000000"));
+        teaLabel.setEffect(null);
+        dessertLabel.setTextFill(Color.web("#000000"));
+        dessertLabel.setEffect(null);
+        optionLabel.setTextFill(Color.web("#000000"));
+        optionLabel.setEffect(null);
+
+        switch (menuId) {
+            case 0 :
+                totalLabel.setTextFill(Color.web("#fafafa"));
+                totalLabel.setEffect(dropShadow);
+                break;
+            case 1 :
+                searchField.clear();
+                coffeeLabel.setTextFill(Color.web("#fafafa"));
+                coffeeLabel.setEffect(dropShadow);
+                break;
+            case 2 :
+                searchField.clear();
+                beverageLabel.setTextFill(Color.web("#fafafa"));
+                beverageLabel.setEffect(dropShadow);
+                break;
+            case 3 :
+                searchField.clear();
+                smoothieLabel.setTextFill(Color.web("#fafafa"));
+                smoothieLabel.setEffect(dropShadow);
+                break;
+            case 4 :
+                searchField.clear();
+                teaLabel.setTextFill(Color.web("#fafafa"));
+                teaLabel.setEffect(dropShadow);
+                break;
+            case 5 :
+                searchField.clear();
+                dessertLabel.setTextFill(Color.web("#fafafa"));
+                dessertLabel.setEffect(dropShadow);
+                break;
+            case 6 :
+                searchField.clear();
+                optionLabel.setTextFill(Color.web("#fafafa"));
+                optionLabel.setEffect(dropShadow);
+                break;
+
+            default:
+                break;
+        }
     }
 }

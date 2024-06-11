@@ -18,32 +18,37 @@
          <content>
             <HBox prefHeight="100.0" prefWidth="600.0" style="-fx-background-color: #F9E10E;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTotal" prefHeight="100.0" prefWidth="100.0" text="전체" textAlignment="CENTER">
+                  <Label fx:id="totalLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTotal" prefHeight="100.0" prefWidth="100.0" text="전체" textAlignment="CENTER">
                      <font>
                         <Font name="카페24 슈퍼매직 Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goCoffee" prefHeight="100.0" prefWidth="100.0" text="커피" textAlignment="CENTER">
+                  <Label fx:id="coffeeLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goCoffee" prefHeight="100.0" prefWidth="100.0" text="커피" textAlignment="CENTER">
                      <font>
                         <Font name="카페24 슈퍼매직 Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goBeverage" prefHeight="100.0" prefWidth="100.0" text="음료" textAlignment="CENTER">
+                  <Label fx:id="beverageLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goBeverage" prefHeight="100.0" prefWidth="100.0" text="음료" textAlignment="CENTER">
                      <font>
                         <Font name="카페24 슈퍼매직 Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="50.0" onMouseClicked="#goSmoothie" prefHeight="100.0" prefWidth="100.0" text="스무디" textAlignment="CENTER">
+                  <Label fx:id="smoothieLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="50.0" onMouseClicked="#goSmoothie" prefHeight="100.0" prefWidth="100.0" text="스무디" textAlignment="CENTER">
                      <font>
                         <Font name="카페24 슈퍼매직 Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTea" prefHeight="100.0" prefWidth="100.0" text="차" textAlignment="CENTER">
+                  <Label fx:id="teaLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goTea" prefHeight="100.0" prefWidth="100.0" text="차" textAlignment="CENTER">
                      <font>
                         <Font name="카페24 슈퍼매직 Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goDessert" prefHeight="100.0" prefWidth="100.0" text="디저트" textAlignment="CENTER">
+                  <Label fx:id="dessertLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goDessert" prefHeight="100.0" prefWidth="100.0" text="디저트" textAlignment="CENTER">
+                     <font>
+                        <Font name="카페24 슈퍼매직 Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="optionLabel" alignment="CENTER" contentDisplay="CENTER" onMouseClicked="#goOptions" prefHeight="100.0" prefWidth="100.0" text="옵션" textAlignment="CENTER">
                      <font>
                         <Font name="카페24 슈퍼매직 Bold" size="24.0" />
                      </font>
@@ -54,15 +59,15 @@
       </ScrollPane>
 
       <!-- 검색 기능 -->
-      <TextField layoutX="28.0" layoutY="160.0" prefHeight="30.0" prefWidth="326.0" />
-      <Button id="searchBtn" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="380.0" layoutY="159.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 10;" text="검색" textAlignment="CENTER">
+      <TextField fx:id="searchField" layoutX="28.0" layoutY="160.0" prefHeight="30.0" prefWidth="326.0" />
+      <Button id="searchBtn" fx:id="searchBtn" alignment="TOP_CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutX="380.0" layoutY="159.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#goSearch" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 10;" text="검색" textAlignment="CENTER">
          <font>
             <Font name="카페24 써라운드" size="14.0" />
          </font>
       </Button>
 
       <!-- 키오스크 하단 버튼 -->
-      <Button fx:id="insertBtn" layoutX="20.0" layoutY="820.0" mnemonicParsing="false" onMouseClicked="#goInsert" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="신규 등록">
+      <Button layoutX="20.0" layoutY="820.0" mnemonicParsing="false" onMouseClicked="#goInsert" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="신규 등록">
          <font>
             <Font name="카페24 써라운드" size="20.0" />
          </font>

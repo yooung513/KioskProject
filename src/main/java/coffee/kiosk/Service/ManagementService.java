@@ -28,4 +28,36 @@ public class ManagementService {
     public int insertFoodAndPossibleOptions(Food food, List<PossibleOptions> possibleList) throws SQLException {
         return managementRepository.insertFoodAndPossibleOptions(food, possibleList);
     }
+
+    public List<Food> findByMenu(int menuId) throws SQLException {
+        return managementRepository.findByMenu(menuId);
+    }
+
+    public int deleteMenu(int deleteId) throws SQLException {
+        return managementRepository.deleteMenu(deleteId);
+    }
+
+    public Food findByFoodId(int foodId) throws SQLException {
+        return managementRepository.findByFoodId(foodId);
+    }
+
+    public List<PossibleOptions> findPossibleOptions(int foodId) throws SQLException {
+        return managementRepository.findPossibleOptions(foodId);
+    }
+
+    public int updateFoodAndPO(Food food, List<PossibleOptions> possibleList) throws SQLException {
+        return managementRepository.updateFoodAndPO(food, possibleList);
+    }
+
+    public List<Food> findByWord(String word) throws SQLException {
+        return managementRepository.findByWord(word);
+    }
+
+    public FoodOptions findOptionById(int optionId) throws SQLException {
+        return managementRepository.findOptionById(optionId);
+    }
+
+    public int updateOption(FoodOptions foodOptions) throws SQLException {
+        return managementRepository.updateOption(foodOptions);
+    }
 }
