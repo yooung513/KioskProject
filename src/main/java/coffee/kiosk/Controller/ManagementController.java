@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -20,7 +21,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -36,6 +36,7 @@ public class ManagementController implements Initializable{
 
     @FXML Label logo;
     @FXML VBox foodListContainer;
+
 
     @FXML Label totalLabel;
     @FXML Label coffeeLabel;
@@ -98,8 +99,7 @@ public class ManagementController implements Initializable{
         setDesign(5);
     }
 
-    public void goOptions(MouseEvent mouseEvent) throws SQLException {
-        // 수정 할 것 -> 옵션 리스트는 새로 만들어서 수정 버튼 이름 다르게 한 후 수정 페이지도 간단하게만 설정
+    public void goOptions(MouseEvent mouseEvent) throws SQLException, IOException {
         List<FoodOptions> optionsList = managementService.findOptions();
 
         try {
@@ -115,12 +115,16 @@ public class ManagementController implements Initializable{
 
                 foodListContainer.getChildren().add(hBox);
             }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         setDesign(6);
     }
+
+
 
     public void goSearch(MouseEvent mouseEvent) throws SQLException {
         String word = searchField.getText();
@@ -174,61 +178,76 @@ public class ManagementController implements Initializable{
         foodListController.viewInsert();
     }
 
+    public void goInsertOpt(MouseEvent mouseEvent) {
+        ManageFoodListController foodListController = new ManageFoodListController();
+        foodListController.viewInsertOpt();
+    }
+
     public void setDesign(int menuId) {
-        DropShadow dropShadow = new DropShadow();
-        totalLabel.setTextFill(Color.web("#000000"));
-        totalLabel.setEffect(null);
-        coffeeLabel.setTextFill(Color.web("#000000"));
-        coffeeLabel.setEffect(null);
-        beverageLabel.setTextFill(Color.web("#000000"));
-        beverageLabel.setEffect(null);
-        smoothieLabel.setTextFill(Color.web("#000000"));
-        smoothieLabel.setEffect(null);
-        teaLabel.setTextFill(Color.web("#000000"));
-        teaLabel.setEffect(null);
-        dessertLabel.setTextFill(Color.web("#000000"));
-        dessertLabel.setEffect(null);
-        optionLabel.setTextFill(Color.web("#000000"));
-        optionLabel.setEffect(null);
+        try {
 
-        switch (menuId) {
-            case 0 :
-                totalLabel.setTextFill(Color.web("#fafafa"));
-                totalLabel.setEffect(dropShadow);
-                break;
-            case 1 :
-                searchField.clear();
-                coffeeLabel.setTextFill(Color.web("#fafafa"));
-                coffeeLabel.setEffect(dropShadow);
-                break;
-            case 2 :
-                searchField.clear();
-                beverageLabel.setTextFill(Color.web("#fafafa"));
-                beverageLabel.setEffect(dropShadow);
-                break;
-            case 3 :
-                searchField.clear();
-                smoothieLabel.setTextFill(Color.web("#fafafa"));
-                smoothieLabel.setEffect(dropShadow);
-                break;
-            case 4 :
-                searchField.clear();
-                teaLabel.setTextFill(Color.web("#fafafa"));
-                teaLabel.setEffect(dropShadow);
-                break;
-            case 5 :
-                searchField.clear();
-                dessertLabel.setTextFill(Color.web("#fafafa"));
-                dessertLabel.setEffect(dropShadow);
-                break;
-            case 6 :
-                searchField.clear();
-                optionLabel.setTextFill(Color.web("#fafafa"));
-                optionLabel.setEffect(dropShadow);
-                break;
+            DropShadow dropShadow = new DropShadow();
+            totalLabel.setTextFill(Color.web("#000000"));
+            totalLabel.setEffect(null);
+            coffeeLabel.setTextFill(Color.web("#000000"));
+            coffeeLabel.setEffect(null);
+            beverageLabel.setTextFill(Color.web("#000000"));
+            beverageLabel.setEffect(null);
+            smoothieLabel.setTextFill(Color.web("#000000"));
+            smoothieLabel.setEffect(null);
+            teaLabel.setTextFill(Color.web("#000000"));
+            teaLabel.setEffect(null);
+            dessertLabel.setTextFill(Color.web("#000000"));
+            dessertLabel.setEffect(null);
+            optionLabel.setTextFill(Color.web("#000000"));
+            optionLabel.setEffect(null);
 
-            default:
-                break;
+            switch (menuId) {
+                case 0 :
+                    totalLabel.setTextFill(Color.web("#fafafa"));
+                    totalLabel.setEffect(dropShadow);
+                    break;
+                case 1 :
+                    searchField.clear();
+                    coffeeLabel.setTextFill(Color.web("#fafafa"));
+                    coffeeLabel.setEffect(dropShadow);
+                    break;
+                case 2 :
+                    searchField.clear();
+                    beverageLabel.setTextFill(Color.web("#fafafa"));
+                    beverageLabel.setEffect(dropShadow);
+                    break;
+                case 3 :
+                    searchField.clear();
+                    smoothieLabel.setTextFill(Color.web("#fafafa"));
+                    smoothieLabel.setEffect(dropShadow);
+                    break;
+                case 4 :
+                    searchField.clear();
+                    teaLabel.setTextFill(Color.web("#fafafa"));
+                    teaLabel.setEffect(dropShadow);
+                    break;
+                case 5 :
+                    searchField.clear();
+                    dessertLabel.setTextFill(Color.web("#fafafa"));
+                    dessertLabel.setEffect(dropShadow);
+                    break;
+                case 6 :
+                    searchField.clear();
+                    optionLabel.setTextFill(Color.web("#fafafa"));
+                    optionLabel.setEffect(dropShadow);
+
+
+
+                    break;
+
+                default:
+                    break;
+            }
+
+        } catch (Exception e) {
+
         }
+
     }
 }

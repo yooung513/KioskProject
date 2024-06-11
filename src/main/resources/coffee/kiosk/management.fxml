@@ -78,8 +78,8 @@
          </font>
       </Button>
 
-
-      <!-- 카페 배너 (로고) -->
+                                                
+                                                      <!-- 카페 배너 (로고) -->
       <Label fx:id="logo" alignment="CENTER" onMouseClicked="#goHome" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #F9E10E;" text="재혁이네 카페" textAlignment="CENTER">
          <font>
             <Font name="카페24 써라운드" size="36.0" />
@@ -90,14 +90,20 @@
       </Label>
 
       <!-- 음식 리스트 구현 부분 -->
-      <ScrollPane hbarPolicy="NEVER" layoutY="200.0" prefHeight="600.0" prefWidth="500.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutY="200.0" prefHeight="600.0" prefWidth="500.0">
         <content>
-                  <VBox fx:id="foodListContainer" prefHeight="611.0" prefWidth="498.0">
+            <VBox fx:id="foodListContainer" prefHeight="611.0" prefWidth="498.0">
                <children>
                   <VBox layoutY="600.0" prefHeight="200.0" prefWidth="100.0" />
-               </children></VBox>
+               </children>
+            </VBox>
         </content>
       </ScrollPane>
+      <Button layoutX="191.0" layoutY="820.0" mnemonicParsing="false" onMouseClicked="#goInsertOpt" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="옵션 등록">
+         <font>
+            <Font name="카페24 써라운드" size="20.0" />
+         </font>
+      </Button>
 
    </children>
 </Pane>

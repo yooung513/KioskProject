@@ -346,4 +346,41 @@ public class ManagementRepository {
             throw e;
         }
     }
+
+    public int deleteOption(int id) throws SQLException {
+        String sql = "DELETE FROM food_options WHERE option_id=?";
+
+        try (Connection conn = DBConnection.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, id);
+
+            int result = pstmt.executeUpdate();
+
+            return result;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public int insertOption(FoodOptions foodOptions) throws SQLException {
+        String sql = "{call insert_option(?, ?)}";
+
+        try (Connection conn = DBConnection.getConnection();
+             CallableStatement callableStatement = conn.prepareCall(sql);) {
+
+            callableStatement.setString(1, foodOptions.getOptionName());
+            callableStatement.setInt(2, foodOptions.getOptionPrice());
+
+            int result = callableStatement.executeUpdate();
+
+            return result;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }

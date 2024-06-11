@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -40,6 +41,7 @@ public class ManageFoodListController {
     @FXML private Label foodIdLabel;
     @FXML private Label nameLabel;
     @FXML private Label priceLabel;
+    @FXML VBox optionBtnContainer;
 
     @FXML private Button chkCancelBtn;
 
@@ -629,7 +631,142 @@ public class ManageFoodListController {
 
 
     // 옵션 삭제하기
+    public void viewOptionDelete(MouseEvent mouseEvent) {
+        try {
+            Parent popupDel = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupdeleteOpt.fxml"));
+            Scene delScene = new Scene(popupDel,450, 350);
 
+            Stage stage = new Stage();
+            stage.setScene(delScene);
+            stage.setResizable(false);
+            stage.show();
+
+            IdSingleton.getInstance().setId(Integer.parseInt(optionIdLabel.getText()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goDeleteOpt(MouseEvent mouseEvent) throws Exception {
+        int result = managementService.deleteOption(IdSingleton.getInstance().getId());
+
+        if (result > 0) {
+            Stage nowStage = (Stage) deleteBtn.getScene().getWindow();
+            nowStage.close();
+
+            Parent successPopup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupokdelete.fxml"));
+            Scene popupName = new Scene(successPopup, 450, 350);
+
+            Stage stage = new Stage();
+            stage.setScene(popupName);
+            stage.setResizable(false);
+            stage.show();
+
+        } else {
+            Parent failPopup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupfaildelete.fxml"));
+            Scene popupName = new Scene(failPopup, 450, 350);
+
+            Stage stage = new Stage();
+            stage.setScene(popupName);
+            stage.setResizable(false);
+            stage.show();
+        }
+    }
+
+
+    // 옵션 등록
+    public void viewInsertOpt() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/coffee/kiosk/optioninsert.fxml"));
+            Parent optionInsert = loader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(optionInsert, 500, 900));
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goOptInsert(MouseEvent mouseEvent) {
+        try {
+            // 예외 처리
+            if (nameField.getText() == null || nameField.getText().isEmpty()) {
+
+                Parent popup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupmissname.fxml"));
+                Scene popupName = new Scene(popup, 450, 350);
+
+                Stage stage = new Stage();
+                stage.setScene(popupName);
+                stage.setResizable(false);
+                stage.show();
+
+            } else if (priceField.getText() == null || priceField.getText().isEmpty()) {
+
+                Parent popup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupmissprice.fxml"));
+                Scene popupName = new Scene(popup, 500, 350);
+
+                Stage stage = new Stage();
+                stage.setScene(popupName);
+                stage.setResizable(false);
+                stage.show();
+
+            } else if (!isNumberic(priceField.getText())) {
+
+                Parent popup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupcheckprice.fxml"));
+                Scene popupName = new Scene(popup, 500, 350);
+
+                Stage stage = new Stage();
+                stage.setScene(popupName);
+                stage.setResizable(false);
+                stage.show();
+
+            } else if (Integer.parseInt(priceField.getText()) < 0 || Integer.parseInt(priceField.getText()) > 10000) {
+
+                Parent popup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupcheckpricerange.fxml"));
+                Scene popupName = new Scene(popup, 500, 350);
+
+                Stage stage = new Stage();
+                stage.setScene(popupName);
+                stage.setResizable(false);
+                stage.show();
+            } else {
+                // 옵션 등록하기
+                FoodOptions foodOptions = new FoodOptions();
+                foodOptions.setOptionName(nameField.getText());
+                foodOptions.setOptionPrice(Integer.parseInt(priceField.getText()));
+
+                int success = managementService.insertOption(foodOptions);
+
+                if (success > 0) {
+                    Stage nowStage = (Stage) insertBtn.getScene().getWindow();
+                    nowStage.close();
+
+                    Parent successPopup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupokinsert.fxml"));
+                    Scene popupName = new Scene(successPopup, 450, 350);
+
+                    Stage stage = new Stage();
+                    stage.setScene(popupName);
+                    stage.setResizable(false);
+                    stage.show();
+
+                } else {
+                    Parent failPopup = FXMLLoader.load(getClass().getResource("/coffee/kiosk/popupfailinsert.fxml"));
+                    Scene popupName = new Scene(failPopup, 450, 350);
+
+                    Stage stage = new Stage();
+                    stage.setScene(popupName);
+                    stage.setResizable(false);
+                    stage.show();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     // 메소드
@@ -680,6 +817,4 @@ public class ManageFoodListController {
             default -> "";
         };
     }
-
-
 }

@@ -42,7 +42,7 @@
             <Insets left="10.0" top="10.0" />
          </HBox.margin>
       </Button>
-      <Button fx:id="optionDeleteBtn" mnemonicParsing="false" onMouseClicked="#viewDelete" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="삭제">
+      <Button fx:id="optionDeleteBtn" mnemonicParsing="false" onMouseClicked="#viewOptionDelete" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="삭제">
          <font>
             <Font name="카페24 써라운드" size="18.0" />
          </font>

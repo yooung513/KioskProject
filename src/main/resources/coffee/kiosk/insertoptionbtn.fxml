@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="155.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffee.kiosk.Controller.ManagementController">
+   <children>
+      <Button mnemonicParsing="false" onMouseClicked="#goInsertOpt" prefHeight="58.0" prefWidth="155.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 15;" text="옵션 등록">
+         <font>
+            <Font name="카페24 써라운드" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

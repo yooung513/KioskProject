@@ -60,4 +60,12 @@ public class ManagementService {
     public int updateOption(FoodOptions foodOptions) throws SQLException {
         return managementRepository.updateOption(foodOptions);
     }
+
+    public int deleteOption(int id) throws SQLException {
+        return managementRepository.deleteOption(id);
+    }
+
+    public int insertOption(FoodOptions foodOptions) throws SQLException {
+        return managementRepository.insertOption(foodOptions);
+    }
 }

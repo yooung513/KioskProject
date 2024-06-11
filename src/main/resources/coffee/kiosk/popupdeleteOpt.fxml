@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffee.kiosk.Controller.ManageFoodListController">
+   <children>
+      <Button fx:id="chkCancelBtn" layoutX="72.0" layoutY="197.0" mnemonicParsing="false" onMouseClicked="#goCancel" prefHeight="74.0" prefWidth="124.0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 20;" text="취소">
+         <font>
+            <Font name="카페24 써라운드" size="24.0" />
+         </font>
+      </Button>
+      <Label layoutX="72.0" layoutY="97.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="삭제 하시겠습니까?">
+         <font>
+            <Font name="카페24 써라운드" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="deleteBtn" layoutX="253.0" layoutY="197.0" mnemonicParsing="false" onMouseClicked="#goDeleteOpt" prefHeight="74.0" prefWidth="124.0" style="-fx-background-color: #F9E10E; -fx-background-radius: 20;" text="삭제">
+         <font>
+            <Font name="카페24 써라운드" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
