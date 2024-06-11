@@ -1,6 +1,8 @@
 package coffee.kiosk.Controller;
 
+import coffee.kiosk.Service.CafemenuGetimageService;
 import coffee.kiosk.Service.OptionService;
+import coffee.kiosk.model.Orderlist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,12 +10,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import coffee.kiosk.model.Menuimg;
+
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,20 +30,28 @@ import coffee.kiosk.model.TotalOrderAmount;
 
 public class OptionController implements Initializable {
 
-    public OptionController(Menuimg selectedMenuimg ) throws SQLException {
+    private CafemenuController cafemenuController;
+
+//    // CafemenuController 인스턴스를 주입하는 setter 메서드 , cafemenucontroller와 의존성 주입
+//    public void setCafemenuController(CafemenuController cafemenuController){
+//        this.cafemenuController = cafemenuController;
+//    }
+
+    public OptionController(Menuimg selectedMenuimg , CafemenuController cafemenuController) throws SQLException {
         this.selectedMenuimg = selectedMenuimg;
         this.optionService = new OptionService(selectedMenuimg);
         this.totalorder = TotalOrderAmount.getInstance();
+        this.cafemenuController = cafemenuController;
     }
 
     private TotalOrderAmount totalOrderAmount;
     public VBox vboxContainer;
-    public Button putOnButton;
     private Menuimg selectedMenuimg;
     private TotalOrderAmount totalorder;
     private OptionService optionService;
 
-
+    @FXML
+    public Button putOnButton;
     @FXML
     public Button cancelbutton;
     @FXML
@@ -48,6 +62,9 @@ public class OptionController implements Initializable {
     public ImageView selectimage;
     @FXML
     public HBox buttonContainer1;
+
+
+
 
 
     @Override
@@ -62,8 +79,10 @@ public class OptionController implements Initializable {
 
         OptionService optionService1 = new OptionService(selectedMenuimg);
         List<String> optionName = null;
+        List<Integer> optionPrice = null;
         try {
             optionName = optionService1.getOptionName(selectedMenuimg);
+            optionPrice = optionService1.getOptionPrice(selectedMenuimg);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -93,8 +112,10 @@ public class OptionController implements Initializable {
                         button.setMinSize(120, 130);
                         button.setText(j == -1 ? optionName.getLast() : optionName.get(j));
                         hbox.getChildren().add(button);
+                        List<Integer> finalOptionPrice = optionPrice;
                         button.setOnMouseClicked(event -> {
-                            System.out.println("pressed111111111111111");
+                            totalorder.addOptionOrderAmount(finalOptionPrice.get(j+1));
+
                         });
                         if (j == 2 || j == 3 || j == 4) {
                             button.setVisible(false);
@@ -199,17 +220,29 @@ public class OptionController implements Initializable {
         putOnButton.setOnMouseClicked(event ->{
             try {
                 totalorder.addSelectedOrderAmount(selectedMenuimg.getFood_price());
+                System.out.println("selectecdOrder putonbutton : " + totalorder.getSelectedOrderAmount());
 
-                String name = selectedMenuimg.getFood_name();
-                int quantity = 1;
-                int price = selectedMenuimg.getFood_price();
-                CafemenuController.addMenuItem(name,quantity,price);
+                // Orderlist 클래스의 싱글톤 인스턴스를 가져옴
+                Orderlist orderlist = Orderlist.getInstance();
 
-                Stage currentStage = (Stage) putOnButton.getScene().getWindow();
-//                currentStage.close();
+                // 새로운 주문 아이템 생성 및 추가
+                Orderlist.OrderItem orderItem = new Orderlist.OrderItem(
+                        selectedMenuimg.getFood_name(), // 음식 이름
+                        1,                              // 기본 수량은 1로 설정
+                        selectedMenuimg.getFood_price(), // 음식 가격
+                        null , 0             // 옵션 이름 , 옵션 가격
+                );
+
+                // Orderlist의 orderItems 리스트에 주문 아이템 추가
+                orderlist.getOrderItems().add(orderItem);
+
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/coffee/kiosk/cafemenu.fxml"));
                 Parent home = loader.load();
+
+                cafemenuController = loader.getController();
+                cafemenuController.handleAddToCart(orderlist.getOrderItems());
+                Stage currentStage = (Stage) putOnButton.getScene().getWindow();
                 Scene scene = new Scene(home , 500 , 900);
 
                 currentStage.setScene(scene);

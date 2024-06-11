@@ -1,6 +1,7 @@
 package coffee.kiosk.Controller;
 
 import coffee.kiosk.Service.CafemenuGetimageService;
+import coffee.kiosk.model.Orderlist;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,6 +35,13 @@ import java.util.ResourceBundle;
 
 
 public class CafemenuController implements Initializable {
+    public static String order_food_name;
+    public static int order_food_price;
+    public static int count;
+    public Button PayButton;
+    private Orderlist orderlist;
+
+
     public Button plus_button;
     public Label selected_price;
     public Label select_count;
@@ -46,7 +54,8 @@ public class CafemenuController implements Initializable {
     public Label teaLabel;
     public Label dessertLabel;
     public HBox menuhbox;
-    public static VBox vboxcontainer;
+    @FXML
+    private  VBox vboxcontainer;
     private TotalOrderAmount totalorder;
     public VBox imgvbox;
     @FXML
@@ -71,6 +80,8 @@ public class CafemenuController implements Initializable {
     List<Menuimg> smoothieimgs;
     List<Menuimg> teaimgs;
     List<Menuimg> dessertimgs;
+    List<Orderlist> orderlists = new ArrayList<>();
+
 
 
     @Override
@@ -116,10 +127,26 @@ public class CafemenuController implements Initializable {
             loadMenuItems(dessertimgs);
         }));
 
+        PayButton.setOnMouseClicked(event ->{
+            try {
+                Parent home = FXMLLoader.load(getClass().getResource("/coffee/kiosk/payment.fxml"));
+                Scene scene = new Scene(home, 500, 900);
+
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.show();
+
+                Stage root = (Stage) logo.getScene().getWindow();
+                root.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
         this.totalorder = TotalOrderAmount.getInstance();
         totalorder.setTotalOrderAmount(totalorder.getSelectedOrderAmount());
         total_price.setText(String.valueOf(totalorder.getTotalOrderAmount()));
-        selected_price.setText(String.valueOf(totalorder.getSelectedOrderAmount()));
     }
 
 
@@ -246,37 +273,13 @@ public class CafemenuController implements Initializable {
             e.printStackTrace();
         }
     }
-//    public void handleVboxSelection(Menuimg selectedMenuimg) throws IOException {
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/coffee/kiosk/option.fxml"));
-//
-//        OptionController optionController;
-//        try {
-//            optionController = new OptionController(selectedMenuimg, this);
-//            totalorder.addSelectedOrderAmount(selectedMenuimg.getFood_price());
-//            total_price.setText(String.valueOf(totalorder.getTotalOrderAmount()));
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        loader.setController(optionController);
-//
-//        Parent root = loader.load();
-//        Scene scene = new Scene(root);
-//
-//        Stage currentStage = (Stage) logo.getScene().getWindow();
-//        currentStage.setScene(scene);
-//        currentStage.setResizable(false);
-//        currentStage.show();
-//    }
-
 
     public void handleVboxSelection(Menuimg selectedMenuimg) throws IOException {
         Callback<Class<?>, Object> controllerFactory = type -> {
             if (type == OptionController.class) {
                 try {
-//                    totalorder.addSelectedOrderAmount(selectedMenuimg.getFood_price());
                     total_price.setText(String.valueOf(totalorder.getTotalOrderAmount()));
-                    return new OptionController(selectedMenuimg);
+                    return new OptionController(selectedMenuimg , this);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
@@ -305,16 +308,32 @@ public class CafemenuController implements Initializable {
 
     }
 
-    public static void addMenuItem(String foodname, int count, int foodprice){
-        HBox hBox = new HBox();
+    public void addMenuItems(List<Orderlist.OrderItem> orderlists) throws IOException {
+        if (!orderlists.isEmpty()) {
+            vboxcontainer.getChildren().clear();
+            for (Orderlist.OrderItem item : orderlists) {
+                try {
+                    // 반복문 내에서 새로 FXMLLoader 인스턴스를 생성합니다.
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/coffee/kiosk/orderlist.fxml"));
+                    Parent hbox = loader.load();
+                    OrderlistController controller = loader.getController();
+                    controller.setData(item.getFoodname(), item.getCount(), item.getFoodprice());
+                    vboxcontainer.getChildren().add(hbox);
 
-        Label foodNameLabel = new Label(foodname);
-        Label countLabel = new Label(String.valueOf(count));
-        Label priceLaber = new Label(String.valueOf(foodprice));
-
-        hBox.getChildren().addAll(foodNameLabel,countLabel,priceLaber);
-        vboxcontainer.getChildren().add(hBox);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
+
+    public void handleAddToCart(List<Orderlist.OrderItem> orderItems) throws IOException {
+        count = 1;
+        addMenuItems(orderItems);
+
+    }
+
+
 
     @FXML
     private List<Menuimg> getCafeimgs() throws SQLException {

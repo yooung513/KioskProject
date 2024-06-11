@@ -95,7 +95,7 @@
             </AnchorPane>
             <AnchorPane layoutX="350.0" layoutY="127.0" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #F9E10E;" text="결제하기">
+                  <Button fx:id="PayButton" mnemonicParsing="false" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #F9E10E;" text="결제하기">
                      <font>
                         <Font name="카페24 슈퍼매직 Bold" size="24.0" />
                      </font>
@@ -108,7 +108,7 @@
                      <children>
                         <HBox prefHeight="30.0" prefWidth="340.0">
                            <children>
-                              <Label prefHeight="30.0" prefWidth="166.0" text="음료이름">
+                              <Label prefHeight="30.0" prefWidth="166.0" text="      음료이름">
                                  <font>
                                     <Font name="카페24 슈퍼매직 Bold" size="18.0" />
                                  </font>
@@ -122,56 +122,6 @@
                                  <font>
                                     <Font name="카페24 슈퍼매직 Bold" size="18.0" />
                                  </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox fx:id="menuhbox" prefHeight="30.0" prefWidth="340.0">
-                           <children>
-                              <Label fx:id="selected_foodname" prefHeight="35.0" prefWidth="145.0">
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="카페24 슈퍼매직 Bold" size="18.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Button fx:id="minus_button" mnemonicParsing="false" prefHeight="22.0" prefWidth="11.0" text="-">
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="카페24 슈퍼매직 Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Label fx:id="select_count" prefHeight="36.0" prefWidth="40.0">
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                                 <padding>
-                                    <Insets left="3.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="카페24 슈퍼매직 Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="plus_button" mnemonicParsing="false" prefHeight="22.0" prefWidth="12.0" text="+">
-                                 <HBox.margin>
-                                    <Insets top="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="카페24 슈퍼매직 Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                              <Label fx:id="selected_price" prefHeight="36.0" prefWidth="80.0" textAlignment="RIGHT">
-                                 <font>
-                                    <Font name="카페24 슈퍼매직 Bold" size="18.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="15.0" top="10.0" />
-                                 </HBox.margin>
                               </Label>
                            </children>
                         </HBox>

@@ -40,10 +40,13 @@ public class  OptionRepository {
         return options;
     }
 
-    public List<String> getOptionPrice(String foodName) throws SQLException {
-        List<String> optionPirces = new ArrayList<>();
+    public List<Integer> getOptionPrice(String foodName) throws SQLException {
+        List<Integer> optionPrices = new ArrayList<>();
 
-        String sql = "SELECT OPTION_PRICE FROM POSSIBLEOPTIONS";
+        String sql =  "SELECT fo.OPTION_PRICE " +
+                      "FROM POSSIBLEOPTIONS po " +
+                      "JOIN FOOD_OPTIONS fo ON po.OPTION_ID = fo.OPTION_ID " +
+                      "WHERE po.FOOD_NAME = ?";
 
 
         try (Connection conn = DBConnection.getConnection();
@@ -53,12 +56,12 @@ public class  OptionRepository {
             ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
-                String optionPrice = rs.getString("OPTION_PRICE");
-                optionPirces.add(optionPrice);
+                int optionPrice = rs.getInt("OPTION_PRICE");
+                optionPrices.add(optionPrice);
             }
         }
 
-        return optionPirces;
+        return optionPrices;
     }
 
 }

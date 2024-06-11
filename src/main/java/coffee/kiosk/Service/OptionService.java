@@ -18,7 +18,9 @@ public class OptionService {
     public List<String> getOptionName(Menuimg selectedMenuimg) throws SQLException {
         return optionRepository.getOptionsByFoodName(selectedMenuimg.getFood_name());
     }
-
+    public List<Integer> getOptionPrice(Menuimg selectedMenuimg) throws SQLException {
+        return optionRepository.getOptionPrice(selectedMenuimg.getFood_name());
+    }
 
 }
 

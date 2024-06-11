@@ -2,6 +2,7 @@ module kiosk.main {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires java.desktop;
 
     opens coffee.kiosk to javafx.fxml;
     exports coffee.kiosk;
